@@ -1,0 +1,107 @@
+vetor1 = [10, 30, 5, 2, 15, 8]
+
+# Bolha:
+
+for k in range (0, len(vetor1)-1):
+    for i in range (0, len(vetor1) -1):
+        if(vetor1[i] > vetor1[i+1]):
+            j = vetor1[i]
+            vetor1[i] = vetor1[i+1]
+            vetor1[i+1] = j
+            print(vetor1)
+
+#10 30 5 2 15 8
+#10 5 30 2 15 8
+#10 5 2 30 15 8
+#10 5 2 15 30 8
+#10 5 2 15 8 30
+#5 10 2 15 8 30
+#5 2 10 15 8 30
+#5 2 10 8 15 30
+#2 5 10 8 15 30
+#2 5 8 10 15 30
+
+# Seleção:
+
+for i in range(0, len(vetor1) -1):
+    menor = vetor1[i]
+    i_menor = i
+    for j in range (i+1, len(vetor1)):
+        if(menor > vetor1[j]):
+            menor = vetor1[j]
+            i_menor = j
+    c = vetor1[i]
+    vetor1[i] = menor
+    vetor1[i_menor] = c
+    print(vetor1)
+
+#10 30 5 2 15 8
+#10 30 2 5 15 8
+#10 2 30 5 15 8
+#2 10 30 5 15 8
+#2 10 5 30 15 8
+#2 5 10 30 15 8
+#2 5 10 30 8 15
+#2 5 10 8 30 15
+#2 5 8 10 30 15
+#2 5 8 10 15 30
+
+# Inserção:
+
+for i in range(1,len(vetor1)):
+    valor = vetor1[i]
+    pvalor = i - 1
+
+    while(pvalor >= 0 and vetor1[pvalor] > valor):
+        vetor1[pvalor + 1] = vetor1[pvalor]
+        pvalor -= 1
+
+    vetor1[pvalor+1] = valor 
+    print(vetor1)
+    
+#10 30 5 2 15 8
+#10 5 30 2 15 8
+#5 10 2 30 15 8
+#5 2 10 30 15 8
+#2 5 10 30 15 8
+#2 5 10 15 30 8
+#2 5 10 15 8 30
+#2 5 10 8 15 30
+#2 5 8 10 15 30
+
+# Busca binária:
+
+valor = 30
+i_valor = -1
+i = 0
+f = len(vetor1) - 1
+
+while (i <= f):
+    m = int((i + f)/2)
+    if(vetor1[m] == valor):
+        i_valor = m
+        break
+    elif (valor > vetor1[m]):
+        i = m + 1
+    else: 
+        f = m - 1
+
+if(i_valor >= 0):
+    print("acho man na posição", i_valor)
+else:
+    print("acho n man")
+
+# Busca sequencial:
+
+i_valor = -1
+valor = 30 
+
+for i in range(0, len(vetor1)):
+    if(vetor1[i] == valor):
+        i_valor = i
+        break
+
+if(i_valor >= 0):
+    print("Achou na posição",i_valor)
+else:
+    print("Não achei")
