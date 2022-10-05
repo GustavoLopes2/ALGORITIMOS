@@ -1,3 +1,3 @@
 # ALGORITIMOS
 
-ANOTANDO OS MÉTODOS DE ORDENAÇÃO E BUSCA DE VETORES
+anotando os métodos de ordenação e busca de vetores
